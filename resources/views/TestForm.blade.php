@@ -150,7 +150,7 @@
                             <select class="form-select" name="hobby" size="1" multiple>
                                 <option value=" reading">READING</option>
                                 <option value=" netflix">NETFLIX</option>
-                                <option value="cooking " selected>COOKING</option>
+                                <option value="cooking " >COOKING</option>
                                 <option value=" drawing">DRAWING</option>
                             </select>
                         </td>
