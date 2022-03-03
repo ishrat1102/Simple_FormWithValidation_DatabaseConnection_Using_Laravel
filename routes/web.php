@@ -18,5 +18,7 @@ use App\Http\Controllers\TestFormController;
 
 //submit form
 Route::get('/register', [TestFormController::class, 'index']);
-Route::post('/register', [TestFormController::class, 'view_form']);
+Route::post('/register', [TestFormController::class, 'store']);
+Route::get('/register/view', [TestFormController::class, 'view']);
+Route::get('/register/delete/{user_id}', [TestFormController::class, 'delete']);
 
