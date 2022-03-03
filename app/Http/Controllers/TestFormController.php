@@ -22,7 +22,35 @@ class TestFormController extends Controller
                 'cpass' => 'required|same:password'
             ]
         );
+        // echo "<pre>";
+        // print_r($request->all());
+    }
+    public function store(Request $request)
+    {
+
         echo "<pre>";
         print_r($request->all());
+        $Demo_registration = new Demo_registration;
+        $Demo_registration->name = $request['name'];
+        $Demo_registration->email = $request['email'];
+        $Demo_registration->gender = $request['gender'];
+        $Demo_registration->phone = $request['phone'];
+        $Demo_registration->dob = $request['dob'];
+        $Demo_registration->password = md5($request['password']);
+        $Demo_registration->nationality = $request['nationality'];
+        $Demo_registration->hobby = $request['hobby'];
+        $Demo_registration->save();
+        return redirect('/register/view');
+    }
+    public function view()
+    {
+        $Demo_registration = Demo_registration::all();
+        $data = compact('Demo_registration');
+        return view('usersdetail')->with($data);
+    }
+    public function delete($user_id)
+    {
+        $Demo_registration = Demo_registration::find($user_id)->delete();
+        return redirect()->back();
     }
 }
