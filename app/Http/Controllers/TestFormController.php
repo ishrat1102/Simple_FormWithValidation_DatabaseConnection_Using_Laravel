@@ -53,6 +53,16 @@ class TestFormController extends Controller
         $Demo_registration = Demo_registration::find($user_id)->delete();
         return redirect()->back();
     }
+    public function edit($user_id)
+    {
+        $Demo_registration = Demo_registration::find($user_id);
+        if (is_null($Demo_registration)) {
+            return redirect()->back();
+        } else {
+            $data = compact('Demo_registration');
+            return view('UpdateForm')->with($data);
+        }
+    }
      public function update($user_id, Request $request)
     {
         echo "hghvjhj";
