@@ -21,4 +21,7 @@ Route::get('/register', [TestFormController::class, 'index']);
 Route::post('/register', [TestFormController::class, 'store']);
 Route::get('/register/view', [TestFormController::class, 'view']);
 Route::get('/register/delete/{user_id}', [TestFormController::class, 'delete']);
+Route::get('/register/edit/{user_id}', [TestFormController::class, 'edit']);
+Route::post('/register/update/{user_id}', [TestFormController::class, 'update']);
+
 
